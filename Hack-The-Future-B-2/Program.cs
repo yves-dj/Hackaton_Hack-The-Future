@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
 // Swagger
@@ -69,6 +68,55 @@ var samplePostResponseValue = await samplePostResponse.Content.ReadAsStringAsync
 
 string GetAnswer(List<string>? sampleGetResponse)
 {
-	int shortestLength = sampleGetResponse.Min(x => x.Length);
-	string shortest = sampleGetResponse.FirstOrDefault(x => x.Length == shortestLength);
+	foreach (string sentence in sampleGetResponse)
+	{
+		string distCharsInString = GetDistinctChars(sentence);
+		Console.WriteLine(distCharsInString);
+		List<int> charPositions = new List<int>();
+		Dictionary<char, List<int>> dictCharsWithPos = new Dictionary<char, List<int>>();
+
+        var dictPositionsOfChar = GetDictPositionsOfChars(sentence, distCharsInString);
+
+	}
+    return "test";
+}
+
+string GetDistinctChars(string orgString)
+{
+    var distinctChars = new String(orgString.ToLower().Distinct().ToArray());
+
+    return distinctChars;
+}
+
+Dictionary<char, List<int>> GetDictPositionsOfChars(string orgString, string distChars)
+{
+	List<int> charPositions = new List<int>();
+	Dictionary<char, List<int>> dictCharsWithPos = new Dictionary<char, List<int>>();
+    for (int i = 0; i < distChars.Length; i++)
+    {
+        char c = distChars[i];
+        Console.WriteLine(c);
+        for (int j = 0; j < orgString.Length; j++)
+        {
+            if (orgString[j] == c)
+            {
+                charPositions.Add(j);
+            }
+        }
+        //charPositions.ForEach(Console.WriteLine);
+		dictCharsWithPos.Add(c, charPositions);
+    }
+
+    foreach (KeyValuePair<char, List<int>> kvp in dictCharsWithPos)
+    {
+        Console.WriteLine("Key = {0}", kvp.Key);
+        var value = kvp.Value;
+        foreach (var index in value)
+        {
+            Console.Write(index + " ");
+        }
+        Console.WriteLine();
+    }
+
+    return dictCharsWithPos;
 }
