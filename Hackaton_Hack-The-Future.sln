@@ -9,12 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hack-The-Future-A-2", "Hack
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack-The-Future-A-3", "Hack-The-Future-A-3\Hack-The-Future-A-3.csproj", "{0D4B29A9-02B4-49D1-86F4-080E50DE7062}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack-The-Future-B-1", "Hack-The-Future-B-1\Hack-The-Future-B-1.csproj", "{E6A06CD4-3332-4447-9937-073F67C0AD45}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack-The-Future-B-2", "Hack-The-Future-B-2\Hack-The-Future-B-2.csproj", "{0B60EA1A-0AEB-43AE-90AE-63C5B9F310BB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack-The-Future-B-3", "Hack-The-Future-B-3\Hack-The-Future-B-3.csproj", "{231B01CE-6F3A-4C24-9FCF-9BE03AC562A2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,18 +27,6 @@ Global
 		{0D4B29A9-02B4-49D1-86F4-080E50DE7062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D4B29A9-02B4-49D1-86F4-080E50DE7062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D4B29A9-02B4-49D1-86F4-080E50DE7062}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E6A06CD4-3332-4447-9937-073F67C0AD45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6A06CD4-3332-4447-9937-073F67C0AD45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6A06CD4-3332-4447-9937-073F67C0AD45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6A06CD4-3332-4447-9937-073F67C0AD45}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B60EA1A-0AEB-43AE-90AE-63C5B9F310BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B60EA1A-0AEB-43AE-90AE-63C5B9F310BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B60EA1A-0AEB-43AE-90AE-63C5B9F310BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B60EA1A-0AEB-43AE-90AE-63C5B9F310BB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{231B01CE-6F3A-4C24-9FCF-9BE03AC562A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{231B01CE-6F3A-4C24-9FCF-9BE03AC562A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{231B01CE-6F3A-4C24-9FCF-9BE03AC562A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{231B01CE-6F3A-4C24-9FCF-9BE03AC562A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
