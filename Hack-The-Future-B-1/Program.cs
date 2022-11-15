@@ -32,9 +32,41 @@ var sampleUrl = "api/path/2/easy/Sample";
 // De response die we verwachten is een lijst van getallen dus gebruiken we List<int>
 var sampleGetResponse = await client.GetFromJsonAsync<List<String>>(sampleUrl);
 
-sampleGetResponse.ForEach(Console.WriteLine);
+// Je zoekt het antwoord
+var sampleAnswer = GetAnswer(sampleGetResponse);
+
+// We sturen het antwoord met een POST request
+// Het antwoord dat we moeten versturen is een getal dus gebruiken we int
+// De response die we krijgen zal ons zeggen of ons antwoord juist was
+var samplePostResponse = await client.PostAsJsonAsync<string>(sampleUrl, sampleAnswer);
+
+// Om te zien of ons antwoord juist was moeten we de response uitlezen
+// Een 200 status code betekent dus niet dat je antwoord juist was!
+var samplePostResponseValue = await samplePostResponse.Content.ReadAsStringAsync();
+
+Console.WriteLine(samplePostResponseValue);
+
+
+// De url om de puzzle challenge data op te halen
+var puzzleUrl = "api/path/2/easy/Puzzle";
+// We doen de GET request en wachten op de het antwoord
+// De response die we verwachten is een lijst van getallen dus gebruiken we List<int>
+var puzzleGetResponse = await client.GetFromJsonAsync<List<String>>(puzzleUrl);
 
 // Je zoekt het antwoord
+var puzzleAnswer = GetAnswer(puzzleGetResponse);
+
+// We sturen het antwoord met een POST request
+// Het antwoord dat we moeten versturen is een getal dus gebruiken we int
+// De response die we krijgen zal ons zeggen of ons antwoord juist was
+var puzzlePostResponse = await client.PostAsJsonAsync<string>(puzzleUrl, puzzleAnswer);
+
+// Om te zien of ons antwoord juist was moeten we de response uitlezen
+// Een 200 status code betekent dus niet dat je antwoord juist was!
+var puzzlePostResponseValue = await puzzlePostResponse.Content.ReadAsStringAsync();
+
+
+
 
 string GetAnswer(List<string>? sampleGetResponse)
 {
@@ -44,10 +76,6 @@ string GetAnswer(List<string>? sampleGetResponse)
     }
 
     StringBuilder solution = new StringBuilder();
-
-    
-
-    
 
     foreach (var orgString in sampleGetResponse)
     {
@@ -72,29 +100,10 @@ string GetAnswer(List<string>? sampleGetResponse)
         solution.Append(" ");
     }
 
-    //foreach (KeyValuePair<char, int> charCount in dictCountPerChar)
-    //{
-    //    Console.WriteLine("Key: {0}, Value: {1}",
-    //        charCount.Key, charCount.Value);
-    //}
-
     Console.WriteLine(solution);
 
-    return "Test";
+    return solution.ToString().Remove(solution.Length - 1, 1);
 }
-
-var sampleAnswer = GetAnswer(sampleGetResponse);
-
-// We sturen het antwoord met een POST request
-// Het antwoord dat we moeten versturen is een getal dus gebruiken we int
-// De response die we krijgen zal ons zeggen of ons antwoord juist was
-var samplePostResponse = await client.PostAsJsonAsync<string>(sampleUrl, sampleAnswer);
-
-// Om te zien of ons antwoord juist was moeten we de response uitlezen
-// Een 200 status code betekent dus niet dat je antwoord juist was!
-var samplePostResponseValue = await samplePostResponse.Content.ReadAsStringAsync();
-
-Console.WriteLine(samplePostResponseValue);
 
 string GetDistinctChars(string orgString)
 {
@@ -125,21 +134,3 @@ Dictionary<char, int> SortCharsByOccurence(Dictionary<char, int> dictCountPerCha
     }
     return sortedDict;
 }
-
-//// De url om de puzzle challenge data op te halen
-//var puzzleUrl = "api/path/1/easy/Puzzle";
-//// We doen de GET request en wachten op de het antwoord
-//// De response die we verwachten is een lijst van getallen dus gebruiken we List<int>
-//var puzzleGetResponse = await client.GetFromJsonAsync<List<int>>(puzzleUrl);
-
-//// Je zoekt het antwoord
-//var puzzleAnswer = GetAnswer(puzzleGetResponse);
-
-//// We sturen het antwoord met een POST request
-//// Het antwoord dat we moeten versturen is een getal dus gebruiken we int
-//// De response die we krijgen zal ons zeggen of ons antwoord juist was
-//var puzzlePostResponse = await client.PostAsJsonAsync<int>(puzzleUrl, puzzleAnswer);
-
-//// Om te zien of ons antwoord juist was moeten we de response uitlezen
-//// Een 200 status code betekent dus niet dat je antwoord juist was!
-//var puzzlePostResponseValue = await puzzlePostResponse.Content.ReadAsStringAsync();
